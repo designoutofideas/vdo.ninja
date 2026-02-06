@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Translation system integrated locally - no external dependencies -->
-    <title data-i18n="pageTitle">VDO.Ninja OBS Control Dock</title>
+    <title data-i18n="pageTitle">Voices OBS Control Dock</title>
     <style>
         body {
             font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -660,7 +660,7 @@
     <style id="customUserCss"></style>
   </head>
   <body>
-    <h1 data-i18n="mainHeading">VDO.Ninja OBS Control</h1>
+    <h1 data-i18n="mainHeading">Voices OBS Control</h1>
     <div class="container">
       <div class="language-switcher">
         <label for="languageSelector" data-i18n="languageSwitcher.label">Language:</label>
@@ -725,9 +725,9 @@
       </div>
     </div>
     <div class="container">
-      <h2 class="collapsible" data-state="expand" data-i18n="vdoNinjaSettings.title">VDO.Ninja Settings</h2>
+      <h2 class="collapsible" data-state="expand" data-i18n="vdoNinjaSettings.title">Voices Settings</h2>
       <div class="collapsible-content">
-        <label for="vdoNinjaBaseUrl" data-i18n="vdoNinjaSettings.baseUrlLabel">VDO.Ninja Base URL:</label>
+        <label for="vdoNinjaBaseUrl" data-i18n="vdoNinjaSettings.baseUrlLabel">Voices Base URL:</label>
         <input
           type="text"
           id="vdoNinjaBaseUrl"
@@ -1003,7 +1003,7 @@
         
         loadSettings();
         updateContent();
-        logMessage("VDO.Ninja OBS Control Dock Initialized. Welcome!", "logMessages.appInitialized");
+        logMessage("Voices OBS Control Dock Initialized. Welcome!", "logMessages.appInitialized");
         updateVdoNinjaButtonState(false);
         toggleVdoNinjaInputs(false);
         setupSecureFieldsBlur();
@@ -1176,7 +1176,7 @@
         });
       });
 
-      // Create and inject VDO.Ninja connect button and status
+      // Create and inject Voices connect button and status
       const vdoNinjaConnectBtn = document.createElement("button");
       vdoNinjaConnectBtn.id = "vdoNinjaConnectBtn";
       vdoNinjaConnectBtn.style.marginTop = "5px";
@@ -1198,7 +1198,7 @@
       if (vdoNinjaSettingsContainer) {
         vdoNinjaSettingsContainer.appendChild(buttonsDiv);
       } else {
-        console.error("VDO.Ninja settings container not found for injecting connect button.");
+        console.error("Voices settings container not found for injecting connect button.");
       }
       vdoNinjaConnectBtn.addEventListener("click", () => {
         if (vdoNinjaConnected) {
@@ -1270,7 +1270,7 @@
         });
       }
 
-      // Get VDO.Ninja base URL
+      // Get Voices base URL
       function getVdoNinjaBaseUrl() {
         const customUrl = vdoNinjaBaseUrlInput.value.trim();
         return customUrl || "https://vdo.ninja";
@@ -1330,7 +1330,7 @@
         saveSettings();
       });
 
-      // Toggle disabled state of VDO.Ninja inputs
+      // Toggle disabled state of Voices inputs
       function toggleVdoNinjaInputs(disabled) {
         vdoNinjaBaseUrlInput.disabled = disabled;
         vdoNinjaRoomInput.disabled = disabled;
@@ -1376,7 +1376,7 @@
           }
       }
       
-      // Update VDO.Ninja connect button state
+      // Update Voices connect button state
       function updateVdoNinjaButtonState(isVdoConnected) {
         vdoNinjaConnected = isVdoConnected;
         if (!window.translation) return;
@@ -1440,7 +1440,7 @@
         saveLayoutConfigs(); 
       }
 
-      // Disconnect from VDO.Ninja
+      // Disconnect from Voices
       function disconnectFromVdoNinja() {
         vdoNinjaIframe.src = "about:blank";
         if (vdoNinjaConnectionCheckTimer) {
@@ -1450,20 +1450,20 @@
         activeStreams = {}; 
         updateStreamList();
         updateVdoNinjaButtonState(false); 
-        logMessage("Disconnected from VDO.Ninja.", "logMessages.vdoNinja.disconnected");
+        logMessage("Disconnected from Voices.", "logMessages.vdoNinja.disconnected");
       }
 
-      // Connect to VDO.Ninja
+      // Connect to Voices
       function connectToVdoNinja() {
         if (vdoNinjaConnected) {
-          logMessage("Already connected to VDO.Ninja.", "logMessages.vdoNinja.alreadyConnected");
+          logMessage("Already connected to Voices.", "logMessages.vdoNinja.alreadyConnected");
           return;
         }
         const room = vdoNinjaRoomInput.value.trim();
         const streamIds = vdoNinjaStreamIdsInput.value.trim();
         if (!room && !streamIds) {
           logMessage(
-            "VDO.Ninja Error: Room Name or Stream ID(s) must be provided.",
+            "Voices Error: Room Name or Stream ID(s) must be provided.",
             "logMessages.vdoNinja.errorRoomOrStreamIdNeeded"
           );
           return;
@@ -1482,7 +1482,7 @@
             Date.now() - vdoNinjaLastActivityTime > 10000 
           ) {
             logMessage(
-              "VDO.Ninja connection timed out. No activity received from iframe.",
+              "Voices connection timed out. No activity received from iframe.",
               "logMessages.vdoNinja.connectionTimeout"
             );
             if (window.translation) {
@@ -1519,8 +1519,8 @@
               <div style="margin-bottom: 5px;">
                   <label style="font-size: 1em; margin-bottom: 6px; display: block; font-weight:500;" data-i18n="streamIdMappings.ruleTitle">Stream Mapping Rule</label>
                   <div class="flex-row" style="align-items: center; margin-bottom: 6px;">
-                      <input type="text" value="${initialStreamId}" class="mapping-stream-id" data-i18n="[placeholder]streamIdMappings.streamIdPlaceholder;[title]streamIdMappings.streamIdTooltip" placeholder="Stream ID" title="Enter the VDO.Ninja Stream ID to match.">
-                      <input type="text" value="${label}" class="mapping-label" data-i18n="[placeholder]streamIdMappings.labelPlaceholder;[title]streamIdMappings.labelTooltip" placeholder="Label (Optional)" title="Enter the VDO.Ninja Label to match (optional).">
+                      <input type="text" value="${initialStreamId}" class="mapping-stream-id" data-i18n="[placeholder]streamIdMappings.streamIdPlaceholder;[title]streamIdMappings.streamIdTooltip" placeholder="Stream ID" title="Enter the Voices Stream ID to match.">
+                      <input type="text" value="${label}" class="mapping-label" data-i18n="[placeholder]streamIdMappings.labelPlaceholder;[title]streamIdMappings.labelTooltip" placeholder="Label (Optional)" title="Enter the Voices Label to match (optional).">
                       <select class="mapping-match-type" data-i18n="[title]streamIdMappings.matchTypeTooltip" title="How to match stream">
                           <option value="streamId" ${matchType === "streamId" ? "selected" : ""} data-i18n="streamIdMappings.matchType.idOnly">ID Only</option>
                           <option value="label" ${matchType === "label" ? "selected" : ""} data-i18n="streamIdMappings.matchType.labelOnly">Label Only</option>
@@ -2298,7 +2298,7 @@
         const room = vdoNinjaRoomInput.value.trim();
         if (!room) {
           logMessage(
-            "Cannot add screen share: VDO.Ninja Room name is required for screen sharing URLs.",
+            "Cannot add screen share: Voices Room name is required for screen sharing URLs.",
             "logMessages.obs.cannotAddScreenShareNoRoom"
           );
           updateStreamList();
@@ -3177,7 +3177,7 @@
         return firstCheckedCheckbox ? firstCheckedCheckbox.value : "";
       }
 
-      // Get VDO.Ninja view URL
+      // Get Voices view URL
       function getVdoNinjaViewUrl(streamId, includeCommonParams = true) {
         const room = vdoNinjaRoomInput.value.trim();
         const ninjaPassword = vdoNinjaPasswordInput.value;
@@ -3204,13 +3204,13 @@
         return url;
       }
 
-      // Initialize VDO.Ninja iframe
+      // Initialize Voices iframe
       function initializeVdoNinjaIframe() {
         const room = vdoNinjaRoomInput.value.trim();
         const streamIdsInput = vdoNinjaStreamIdsInput.value.trim();
         if (!room && !streamIdsInput) {
           logMessage(
-            "VDO.Ninja: Room Name or specific Stream ID(s) must be provided to connect.",
+            "Voices: Room Name or specific Stream ID(s) must be provided to connect.",
             "logMessages.vdoNinja.roomOrStreamIdNeededForConnect"
           );
           updateVdoNinjaButtonState(false); 
@@ -3240,7 +3240,7 @@
             if (viewStreamIds.includes(",")) vdoNinjaUrl += "&solo"; 
           } else {
             logMessage(
-              "VDO.Ninja: Stream IDs provided but were empty after trimming.",
+              "Voices: Stream IDs provided but were empty after trimming.",
               "logMessages.vdoNinja.streamIdsEmptyAfterTrim"
             );
             updateVdoNinjaButtonState(false);
@@ -3255,7 +3255,7 @@
         vdoNinjaUrl +=
           "&cleanoutput&dataonly&nocursor&nopush&noaudio&novideo&cors=" +
           encodeURIComponent(window.location.origin); 
-        logMessage(`Initializing VDO.Ninja iframe with URL: ${vdoNinjaUrl}`, "logMessages.vdoNinja.initializingIframe", { url: vdoNinjaUrl });
+        logMessage(`Initializing Voices iframe with URL: ${vdoNinjaUrl}`, "logMessages.vdoNinja.initializingIframe", { url: vdoNinjaUrl });
         vdoNinjaIframe.src = "about:blank"; 
         vdoNinjaIframe.setAttribute("crossorigin", "anonymous"); 
         setTimeout(() => {
@@ -3264,7 +3264,7 @@
         }, 100);
       }
 
-      // VDO.Ninja iframe message listener
+      // Voices iframe message listener
       window.addEventListener(
         "message",
         (event) => {
@@ -3274,7 +3274,7 @@
             parsedExpectedOrigin = new URL(expectedOriginBase);
           } catch (e) {
             logMessage(
-              `Invalid VDO.Ninja base URL in settings: ${expectedOriginBase}`,
+              `Invalid Voices base URL in settings: ${expectedOriginBase}`,
               "logMessages.vdoNinja.invalidBaseUrl", { url: expectedOriginBase }
             );
             return; 
@@ -3294,7 +3294,7 @@
               clearTimeout(vdoNinjaConnectionCheckTimer); 
               vdoNinjaConnectionCheckTimer = null;
             }
-            logMessage("VDO.Ninja iframe connection established and active.", "logMessages.vdoNinja.iframeConnectedActive");
+            logMessage("Voices iframe connection established and active.", "logMessages.vdoNinja.iframeConnectedActive");
           }
           if (data && data.streamID) {
             const streamId = data.streamID;
@@ -3305,7 +3305,7 @@
               (data.action === "push-connection" && data.value === true) 
             ) {
               logMessage(
-                `VDO.Ninja stream connected/active: "${label}" (ID: ${streamId})`,
+                `Voices stream connected/active: "${label}" (ID: ${streamId})`,
                 "logMessages.vdoNinja.streamConnectedActive", { label, id: streamId }
               );
               activeStreams[streamId] = {
@@ -3327,7 +3327,7 @@
             ) {
               if (activeStreams[streamId]) {
                 logMessage(
-                  `VDO.Ninja stream disconnected/inactive: "${label}" (ID: ${streamId})`,
+                  `Voices stream disconnected/inactive: "${label}" (ID: ${streamId})`,
                   "logMessages.vdoNinja.streamDisconnectedInactive", { label, id: streamId }
                 );
                 if (
@@ -3348,7 +3348,7 @@
               if (activeStreams[streamId]) {
                 if (activeStreams[streamId].label !== data.value.label) {
                   logMessage(
-                    `VDO.Ninja stream label updated for ID ${streamId}: "${data.value.label}" (was "${activeStreams[streamId].label}")`,
+                    `Voices stream label updated for ID ${streamId}: "${data.value.label}" (was "${activeStreams[streamId].label}")`,
                     "logMessages.vdoNinja.streamLabelUpdated", { id: streamId, newLabel: data.value.label, oldLabel: activeStreams[streamId].label }
                   );
                   activeStreams[streamId].label = data.value.label;
@@ -3361,7 +3361,7 @@
         false
       );
 
-      // Start VDO.Ninja connection monitor
+      // Start Voices connection monitor
       function startVdoNinjaConnectionMonitor() {
         setInterval(() => {
           if (
@@ -3369,7 +3369,7 @@
             Date.now() - vdoNinjaLastActivityTime > 45000 
           ) {
             logMessage(
-              "VDO.Ninja connection lost (no activity from iframe). Attempting to reset.",
+              "Voices connection lost (no activity from iframe). Attempting to reset.",
               "logMessages.vdoNinja.connectionLostResetting"
             );
             if (window.translation) vdoNinjaConnectionStatus.textContent = getTranslation("vdoNinjaSettings.statusConnectionLost");
@@ -3717,7 +3717,7 @@
         const cameraItems = vdoNinjaSceneItems.filter(item => item.sourceName.startsWith(generalCamPrefix) && !item.sourceName.endsWith(':s')); 
 
         if (cameraItems.length === 0) {
-            logMessage(`No VDO.Ninja camera sources to apply Grid layout in scene '${sceneName}'.`, "logMessages.obs.noSourcesForGridLayout", {sceneName});
+            logMessage(`No Voices camera sources to apply Grid layout in scene '${sceneName}'.`, "logMessages.obs.noSourcesForGridLayout", {sceneName});
             for (const item of vdoNinjaSceneItems) {
                 if (!cameraItems.find(ci => ci.sceneItemId === item.sceneItemId)) {
                     await hideSourceItem(sceneName, item.sceneItemId, item.sourceName);
@@ -3725,7 +3725,7 @@
             }
             return;
         }
-        logMessage(`Applying Grid Layout to ${cameraItems.length} VDO.Ninja camera sources in scene '${sceneName}'.`, "logMessages.obs.applyingGridLayoutScene", {count: cameraItems.length, sceneName});
+        logMessage(`Applying Grid Layout to ${cameraItems.length} Voices camera sources in scene '${sceneName}'.`, "logMessages.obs.applyingGridLayoutScene", {count: cameraItems.length, sceneName});
         
         const margin = layoutConfig.margin ?? DEFAULT_GRID_MARGIN;
         const spacing = layoutConfig.spacing ?? DEFAULT_GRID_SPACING;

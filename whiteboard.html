@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free, open-source live streaming whiteboard with secure E2EE P2P sharing via VDO.Ninja and WHIP support">
-    <meta name="keywords" content="whiteboard, streaming, VDO.Ninja, WHIP, e2ee, p2p, drawing, collaboration">
-    <meta name="author" content="VDO.Ninja">
-    <meta property="og:title" content="VDO.Ninja Whiteboard">
+    <meta name="description" content="Free, open-source live streaming whiteboard with secure E2EE P2P sharing via Voices and WHIP support">
+    <meta name="keywords" content="whiteboard, streaming, Voices, WHIP, e2ee, p2p, drawing, collaboration">
+    <meta name="author" content="Voices">
+    <meta property="og:title" content="Voices Whiteboard">
     <meta property="og:description" content="Free, open-source live streaming whiteboard with secure E2EE P2P sharing">
     <meta property="og:image" content="https://vdo.ninja/media/logo.png">
     <meta property="og:url" content="https://vdo.ninja/whiteboard">
@@ -367,7 +367,7 @@
 		<div class="modal">
 			<h3 style="text-align: center; margin-bottom: 15px;">Whiteboard Publishing Options</h3>
 			<div class="modal-buttons">
-				<button onclick="showMode('vdo')" title="Peer-to-peer encrypted streaming via VDO.Ninja">VDO.Ninja</button>
+				<button onclick="showMode('vdo')" title="Peer-to-peer encrypted streaming via Voices">Voices</button>
 				<button onclick="showMode('whip')" title="Stream to any WHIP-compatible service">WHIP</button>
 				<button onclick="showMode('twitch')" title="Stream directly to Twitch">Twitch</button>
 				<button onclick="showMode('playground')" title="Local drawing only - no streaming">Playground</button>
@@ -657,7 +657,7 @@
 		document.querySelector(`button[onclick="showMode('${mode}')"]`).classList.add('active');
 		
 		const descriptions = {
-			'vdo': 'Stream securely peer-to-peer using VDO.Ninja',
+			'vdo': 'Stream securely peer-to-peer using Voices',
 			'whip': 'Stream to any WHIP-compatible service',
 			'twitch': 'Stream directly to your Twitch channel',
 			'playground': 'Local drawing mode - no streaming'

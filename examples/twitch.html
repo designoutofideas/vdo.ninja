@@ -190,8 +190,8 @@ button:active {
 		<button id="hangup">Hangup</button>
 	</div>
 	<div id="clean">
-		<h1>Use VDO.Ninja and Twitch chat at the same time</h1>
-		VDO.Ninja Stream ID or URL:
+		<h1>Use Voices and Twitch chat at the same time</h1>
+		Voices Stream ID or URL:
 		<input placeholder="Enter a VDON stream ID or VDON URL" id="viewlink" type="text" />
 		Twitch Username or URL:
 		<input placeholder="Enter the Twitch channel name" id="twitch" type="text" />
@@ -199,7 +199,7 @@ button:active {
 		<button onclick="clearInput()" style="background-color: #f4cccc;margin:10px 0px 10px 10vh;padding:10px;">CLEAR</button>
 		<br /><br /><br />
 		<p>
-			This app lets you publish video/audio via VDO.Ninja at the same time as viewing your Twitch chat.<br /><br />If you have feature requests or suggestions, please report them at https://discord.vdo.ninja in the #feature-request channel.
+			This app lets you publish video/audio via Voices at the same time as viewing your Twitch chat.<br /><br />If you have feature requests or suggestions, please report them at https://discord.vdo.ninja in the #feature-request channel.
 		</p>
 	</div>
 <script>
@@ -245,14 +245,14 @@ function getStorage(cname) {
 if (getStorage("twitchChatLink")){
 	document.getElementById("twitch").value = getStorage("twitchChatLink");
 }
-if (getStorage("vdoNinjaTwitchURL")){
-	document.getElementById("viewlink").value = getStorage("vdoNinjaTwitchURL");
+if (getStorage("voicesTwitchURL")){
+	document.getElementById("viewlink").value = getStorage("voicesTwitchURL");
 }
 function clearInput(){
 	var confirmit = confirm("Are you sure you want to clear the input fields and local storage?");
 	if (confirmit){
 		removeStorage("twitchChatLink");
-		removeStorage("vdoNinjaTwitchURL");
+		removeStorage("voicesTwitchURL");
 		document.getElementById("viewlink").value  = "";
 		document.getElementById("twitch").value = "";
 	}
@@ -335,7 +335,7 @@ function loadIframes(url=false){
 	
 	setStorage("twitchChatLink", room2);
 
-	setStorage("vdoNinjaTwitchURL", room1);
+	setStorage("voicesTwitchURL", room1);
 	
 	
 	setTimeout(function(){

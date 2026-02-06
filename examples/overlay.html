@@ -44,7 +44,7 @@ h1{
 
 
 <div id="clean">
-	<h1>Apply an Overlay to VDO.Ninja</h1>
+	<h1>Apply an Overlay to Voices</h1>
 	<input placeholder="Enter a VDON URL here" id="viewlink" type="text" />
 	<input placeholder="Enter the Overlay page here" id="overlay" type="text" />
 	<button onclick="loadIframes()" style="display:block;padding:10px;margin:10px;">START</button>(Leave blank and press start to see a default sample result)
@@ -92,8 +92,8 @@ function getStorage(cname) {
 if (getStorage("overlayChatLink")){
 	document.getElementById("overlay").value = getStorage("overlayChatLink");
 }
-if (getStorage("vdoNinjaoverlayURL")){
-	document.getElementById("viewlink").value = getStorage("vdoNinjaoverlayURL");
+if (getStorage("voicesoverlayURL")){
+	document.getElementById("viewlink").value = getStorage("voicesoverlayURL");
 }
 
 function loadIframes(url=false){ 
@@ -137,7 +137,7 @@ function loadIframes(url=false){
 
 	if (roomname && overlay){
 		setStorage("overlayChatLink", room2);
-		setStorage("vdoNinjaoverlayURL", room1);
+		setStorage("voicesoverlayURL", room1);
 	}
 }
 

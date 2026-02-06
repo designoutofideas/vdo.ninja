@@ -64,7 +64,7 @@ var miscTranslations = {
 	// i can replace this list from time to time from the generated one in blank.json using translate.js
 	start: "START",
 	"new-display-name": "Enter a new Display Name for this stream",
-	"submit-error-report": "Press OK to submit any error logs to VDO.Ninja. Error logs may contain private information.",
+	"submit-error-report": "Press OK to submit any error logs to Voices. Error logs may contain private information.",
 	"director-redirect-1": "The director wishes to redirect you to the URL: ",
 	"director-redirect-2": "\n\nPress OK to be redirected.",
 	"add-a-label": "Add a label",
@@ -145,7 +145,7 @@ var miscTranslations = {
 	"no-screen-share-supported": "Sorry, your browser does not support screen-sharing.\n\nPlease use the desktop versions of Firefox or Chrome instead.",
 	"no-screen-share-supported-firefox": "Sorry, your browser does not support screen-sharing.\n\nYour Firefox settings may be configured to block it or you've accessed the site insecurely.",
 	"speech-not-suppoted": "⚠ Speech Recognition is not supported by this browser",
-	"blue-yeti-tip": "<i>Tip:</i> Blue Yeti microphones may experience issues being overly loud. <a href='https://support.google.com/chrome/thread/7542181?hl=en&msgid=79691143'>Please see here</a> for a solution or disable auto-gain in VDO.Ninja.",
+	"blue-yeti-tip": "<i>Tip:</i> Blue Yeti microphones may experience issues being overly loud. <a href='https://support.google.com/chrome/thread/7542181?hl=en&msgid=79691143'>Please see here</a> for a solution or disable auto-gain in Voices.",
 	"sample-rate-too-high": "Your audio playback device has its sample rate set very high. If having audio issues, try using 48-kHz instead.",
 	"site-not-responsive": "<h3>Notice: The system cannot be accessed or is currently slow to respond.</h3>\nIf a routing issue, try adding <i title='or try visiting https://proxy.vdo.ninja/'>&proxy</i> to the URL; you can also try <i>https://proxy.vdo.ninja</i> or a VPN if the service is blocked in your country.\n\nIf the main service is down, a backup version is also available here: <i>https://backup.vdo.ninja</i>\n\nContact steve@seguin.email for added help.\n\nThis service requires the use of Websockets over port 443.",
 	"no-audio-source-detected": "No audio source was detected.<br><br>Please see <a href='https://docs.vdo.ninja/common-errors-and-known-issues/cant-capture-an-applications-audio-when-screen-sharing' target='_blank'>the documention</a> for a guide on how to capture application-based audio.",
@@ -3150,7 +3150,7 @@ function obsSourceActiveChanged(event) {
 }
 
 function obsSourceVisibleChanged(event) {
-	// accounts for visible in VDO.Ninja scene AND visible in OBS scene
+	// accounts for visible in Voices scene AND visible in OBS scene
 	warnlog("obsSourceVisibleChanged");
 	warnlog(event.detail);
 	try {
@@ -13885,7 +13885,7 @@ function printValues(obj, sort = false) {
 						return;
 					}
 				} else if (key == "version") {
-					stat = "VDO.Ninja Version";
+					stat = "Voices Version";
 				} else if (key == "platform") {
 					stat = "Platform (OS)";
 				} else if (key == "iPhone12Up") {
@@ -21977,7 +21977,7 @@ async function joinRoom(roomname) {
 								warnUser("You can invite others with:\n\n<a target='_blank' title='Copy this link to the clipboard' style='cursor:pointer' onclick='copyFunction(this.innerText,event);' href='" + invite + "'>" + invite + "</a>", false, false);
 							} else {
 								generateHash(session.password + session.salt, 4).then(function (hash) {
-									// change the hash length from 4 to 3 when VDO.Ninja v24.10 or newer is in production.
+									// change the hash length from 4 to 3 when Voices v24.10 or newer is in production.
 									var invite = "https://" + location.host + location.pathname + "?room=" + session.roomid + "&hash=" + hash + token;
 									warnUser("You can invite others with:\n\n<a target='_blank' title='Copy this link to the clipboard' style='cursor:pointer' onclick='copyFunction(this.innerText,event)' href='" + invite + "'>" + invite + "</a>", false, false);
 								});
