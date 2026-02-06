@@ -198,14 +198,14 @@ function getStorage(cname) {
 if (getStorage("kickChatLink")){
 	document.getElementById("kick").value = getStorage("kickChatLink");
 }
-if (getStorage("vdoNinjaKickURL")){
-	document.getElementById("viewlink").value = getStorage("vdoNinjaKickURL");
+if (getStorage("voicesKickURL")){
+	document.getElementById("viewlink").value = getStorage("voicesKickURL");
 }
 function clearInput(){
 	var confirmit = confirm("Are you sure you want to clear the input fields and local storage?");
 	if (confirmit){
 		removeStorage("kickChatLink");
-		removeStorage("vdoNinjaKickURL");
+		removeStorage("voicesKickURL");
 		document.getElementById("viewlink").value  = "";
 		document.getElementById("kick").value = "";
 	}
@@ -288,7 +288,7 @@ function loadIframes(url=false){
 	
 	setStorage("kickChatLink", room2);
 
-	setStorage("vdoNinjaKickURL", room1);
+	setStorage("voicesKickURL", room1);
 	
 	
 	setTimeout(function(){

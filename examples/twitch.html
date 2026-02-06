@@ -245,14 +245,14 @@ function getStorage(cname) {
 if (getStorage("twitchChatLink")){
 	document.getElementById("twitch").value = getStorage("twitchChatLink");
 }
-if (getStorage("vdoNinjaTwitchURL")){
-	document.getElementById("viewlink").value = getStorage("vdoNinjaTwitchURL");
+if (getStorage("voicesTwitchURL")){
+	document.getElementById("viewlink").value = getStorage("voicesTwitchURL");
 }
 function clearInput(){
 	var confirmit = confirm("Are you sure you want to clear the input fields and local storage?");
 	if (confirmit){
 		removeStorage("twitchChatLink");
-		removeStorage("vdoNinjaTwitchURL");
+		removeStorage("voicesTwitchURL");
 		document.getElementById("viewlink").value  = "";
 		document.getElementById("twitch").value = "";
 	}
@@ -335,7 +335,7 @@ function loadIframes(url=false){
 	
 	setStorage("twitchChatLink", room2);
 
-	setStorage("vdoNinjaTwitchURL", room1);
+	setStorage("voicesTwitchURL", room1);
 	
 	
 	setTimeout(function(){

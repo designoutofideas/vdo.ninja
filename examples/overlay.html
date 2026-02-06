@@ -92,8 +92,8 @@ function getStorage(cname) {
 if (getStorage("overlayChatLink")){
 	document.getElementById("overlay").value = getStorage("overlayChatLink");
 }
-if (getStorage("vdoNinjaoverlayURL")){
-	document.getElementById("viewlink").value = getStorage("vdoNinjaoverlayURL");
+if (getStorage("voicesoverlayURL")){
+	document.getElementById("viewlink").value = getStorage("voicesoverlayURL");
 }
 
 function loadIframes(url=false){ 
@@ -137,7 +137,7 @@ function loadIframes(url=false){
 
 	if (roomname && overlay){
 		setStorage("overlayChatLink", room2);
-		setStorage("vdoNinjaoverlayURL", room1);
+		setStorage("voicesoverlayURL", room1);
 	}
 }
 

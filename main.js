@@ -1091,13 +1091,13 @@ async function main() {
 	}
 
 	if (urlParams.has("motionswitch") || urlParams.has("motiondetection")) {
-		// switch OBS to this scene when there is motion, and "solo view" this video in the VDO.Ninja auto-mixer, if used
+		// switch OBS to this scene when there is motion, and "solo view" this video in the Voices auto-mixer, if used
 		session.motionSwitch = parseInt(urlParams.get("motionswitch")) || parseInt(urlParams.get("motiondetection")) || 15; // threshold of motion needed to trigger
 		session.hiddenSceneViewBitrate = false;
 	}
 
 	if (urlParams.has("motionrecord") || urlParams.has("recordmotion")) {
-		// switch OBS to this scene when there is motion, and "solo view" this video in the VDO.Ninja auto-mixer, if used
+		// switch OBS to this scene when there is motion, and "solo view" this video in the Voices auto-mixer, if used
 		session.motionRecord = parseInt(urlParams.get("motionrecord")) || parseInt(urlParams.get("recordmotion")) || 15; // threshold of motion needed to trigger
 		session.hiddenSceneViewBitrate = false;
 	}
@@ -7170,7 +7170,7 @@ async function main() {
 			/// set a video bitrate for a video; scene or view link; kbps
 			var lock = true;
 			if ("lock" in e.data) {
-				// since this is the iframe API, we're going to assume the default is manual over-ride. VDO.Ninja's automixer logic won't override a locked bitrate.
+				// since this is the iframe API, we're going to assume the default is manual over-ride. Voices's automixer logic won't override a locked bitrate.
 				lock = e.data.lock;
 			}
 			for (var i in session.rpcs) {
@@ -7203,7 +7203,7 @@ async function main() {
 			// changes the audio bitrate of a specific or all inbound media tracks. kbps
 			var lock = true;
 			if ("lock" in e.data) {
-				// since this is the iframe API, we're going to assume the default is manual over-ride. VDO.Ninja's automixer logic won't override a locked bitrate.
+				// since this is the iframe API, we're going to assume the default is manual over-ride. Voices's automixer logic won't override a locked bitrate.
 				lock = e.data.lock;
 			}
 			for (var i in session.rpcs) {
@@ -8110,9 +8110,9 @@ async function main() {
 	window.addEventListener("offline", function (e) {
 		warnlog("connection lost");
 		if (((session.view!==false) || session.whepInput || session.whipView) && session.permaid === false) {
-			log("VDO.Ninja has no network connectivity and can't work properly.");
+			log("Voices has no network connectivity and can't work properly.");
 		} else if (session.scene !== false) {
-			log("VDO.Ninja has no network connectivity and can't work properly.");
+			log("Voices has no network connectivity and can't work properly.");
 		} else if (!session.cleanOutput) {
 			if (iOS || iPad) {
 				for (var UUID in session.pcs) {
@@ -8128,7 +8128,7 @@ async function main() {
 				warnUser(getTranslation("no-network"));
 			}
 		} else {
-			log("VDO.Ninja has no network connectivity and can't work properly.");
+			log("Voices has no network connectivity and can't work properly.");
 		}
 	});
 
@@ -8249,7 +8249,7 @@ async function main() {
 		if (session.label !== false) {
 			url += "&layer-name=" + session.label;
 		} else {
-			url += "&layer-name=VDO.Ninja";
+			url += "&layer-name=Voices";
 		}
 		if (streamId.length > 1) url += ": " + streamId[1].split("&")[0];
 		if (label.length > 1) url += " - " + decodeURI(label[1].split("&")[0]);

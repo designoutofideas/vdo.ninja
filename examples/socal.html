@@ -134,8 +134,8 @@ function getStorage(cname) {
 if (getStorage("SocialStreamChatLink")){
 	document.getElementById("social").value = getStorage("SocialStreamChatLink");
 }
-if (getStorage("vdoNinjaSocialStreamURL")){
-	document.getElementById("viewlink").value = getStorage("vdoNinjaSocialStreamURL");
+if (getStorage("voicesSocialStreamURL")){
+	document.getElementById("viewlink").value = getStorage("voicesSocialStreamURL");
 }
 
 function loadIframes(url=false){ 
@@ -166,7 +166,7 @@ function loadIframes(url=false){
 	
 	setStorage("SocialStreamChatLink", room2);
 
-	setStorage("vdoNinjaSocialStreamURL", room1);
+	setStorage("voicesSocialStreamURL", room1);
 	
 	
 	setTimeout(function(){
